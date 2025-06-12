@@ -45,7 +45,7 @@ const LandingPage = () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   {[1,2,3,4,5].map(i => (
-                    <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} className="w-4 h-4 fill-primary-500 text-primary-500" />
                   ))}
                   <span className="text-sm text-gray-600 ml-1">4.9/5 Rating</span>
                 </div>
@@ -147,7 +147,7 @@ const LandingPage = () => {
                   'Lifetime community access'
                 ].map((item, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-5 w-5 text-green-500" />
+                    <CheckCircle className="h-5 w-5 text-primary-600" />
                     <span className="text-gray-700">{item}</span>
                   </div>
                 ))}
@@ -195,7 +195,7 @@ const LandingPage = () => {
                 <CardContent className="p-8">
                   <div className="flex items-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <Star key={i} className="w-4 h-4 fill-primary-500 text-primary-500" />
                     ))}
                   </div>
                   <p className="text-gray-600 mb-6 italic">"{testimonial.content}"</p>

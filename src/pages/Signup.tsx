@@ -180,15 +180,15 @@ const Signup = () => {
 
               <div className="space-y-3">
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <CheckCircle className="h-4 w-4 text-primary-600" />
                   <span className="text-sm text-gray-600">Expert-led courses</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <CheckCircle className="h-4 w-4 text-primary-600" />
                   <span className="text-sm text-gray-600">Live trading sessions</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
+                  <CheckCircle className="h-4 w-4 text-primary-600" />
                   <span className="text-sm text-gray-600">24/7 community support</span>
                 </div>
               </div>
