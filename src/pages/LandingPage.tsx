@@ -1,11 +1,53 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Users, Award, TrendingUp, Shield, Clock, Target, CheckCircle, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowRight, Star, Users, Award, TrendingUp, Shield, Clock, Target, CheckCircle, Mail, Phone, MapPin, Calendar, Globe, ExternalLink } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 
 const LandingPage = () => {
+  const batches = [
+    {
+      id: 1,
+      title: "Forex Trading Fundamentals",
+      mode: "Online",
+      language: "Hindi",
+      startDate: "2024-07-01",
+      duration: "8 weeks",
+      price: "₹15,000",
+      googleFormUrl: "https://forms.google.com/example1"
+    },
+    {
+      id: 2,
+      title: "Advanced Technical Analysis", 
+      mode: "Offline",
+      language: "Marathi",
+      startDate: "2024-07-15",
+      duration: "12 weeks",
+      price: "₹25,000",
+      googleFormUrl: "https://forms.google.com/example2"
+    },
+    {
+      id: 3,
+      title: "Risk Management Strategies",
+      mode: "Online",
+      language: "Hindi",
+      startDate: "2024-08-01",
+      duration: "6 weeks",
+      price: "₹12,000",
+      googleFormUrl: "https://forms.google.com/example3"
+    },
+    {
+      id: 4,
+      title: "Options Trading Mastery",
+      mode: "Offline", 
+      language: "Marathi",
+      startDate: "2024-08-15",
+      duration: "10 weeks",
+      price: "₹20,000",
+      googleFormUrl: "https://forms.google.com/example4"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -117,6 +159,92 @@ const LandingPage = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Batches Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Upcoming Trading Batches
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Choose from our carefully designed courses available in Hindi and Marathi
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {batches.map((batch) => (
+              <Card key={batch.id} className="hover-lift cursor-pointer border-0 shadow-lg bg-white">
+                <CardContent className="p-8">
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold text-gray-900">{batch.title}</h3>
+                    <span className="text-2xl font-bold text-primary-600">{batch.price}</span>
+                  </div>
+                  
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Globe className="h-4 w-4 text-gray-500" />
+                        <span className="text-sm text-gray-600">Mode:</span>
+                      </div>
+                      <span className={`text-sm font-medium px-3 py-1 rounded-full ${
+                        batch.mode === 'Online' 
+                          ? 'bg-blue-100 text-blue-800' 
+                          : 'bg-green-100 text-green-800'
+                      }`}>
+                        {batch.mode}
+                      </span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Users className="h-4 w-4 text-gray-500" />
+                        <span className="text-sm text-gray-600">Language:</span>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">{batch.language}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Calendar className="h-4 w-4 text-gray-500" />
+                        <span className="text-sm text-gray-600">Start Date:</span>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">
+                        {new Date(batch.startDate).toLocaleDateString('en-IN')}
+                      </span>
+                    </div>
+                    
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center space-x-2">
+                        <Clock className="h-4 w-4 text-gray-500" />
+                        <span className="text-sm text-gray-600">Duration:</span>
+                      </div>
+                      <span className="text-sm font-medium text-gray-900">{batch.duration}</span>
+                    </div>
+                  </div>
+                  
+                  <Button 
+                    className="w-full group"
+                    onClick={() => window.open(batch.googleFormUrl, '_blank')}
+                  >
+                    Register Now
+                    <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/signup">
+              <Button size="lg" variant="outline">
+                View All Batches
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
