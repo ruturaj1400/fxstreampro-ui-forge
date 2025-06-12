@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Users, Award, TrendingUp, Shield, Clock, Target, CheckCircle, Mail, Phone, MapPin, Calendar, Globe, ExternalLink } from 'lucide-react';
+import { ArrowRight, Star, Users, Award, TrendingUp, Shield, Clock, Target, CheckCircle, Mail, Phone, MapPin, Calendar, Globe, ExternalLink, Facebook, Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 
@@ -45,6 +45,45 @@ const LandingPage = () => {
       duration: "10 weeks",
       price: "₹20,000",
       googleFormUrl: "https://forms.google.com/example4"
+    }
+  ];
+
+  const galleryImages = [
+    {
+      id: 1,
+      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+      alt: "Trading Workshop",
+      title: "Live Trading Workshop"
+    },
+    {
+      id: 2,
+      src: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=300&fit=crop",
+      alt: "Student Learning",
+      title: "Interactive Learning Sessions"
+    },
+    {
+      id: 3,
+      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+      alt: "Expert Instructor",
+      title: "Expert Instructors"
+    },
+    {
+      id: 4,
+      src: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop",
+      alt: "Online Class",
+      title: "Online Classes"
+    },
+    {
+      id: 5,
+      src: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+      alt: "Market Analysis",
+      title: "Market Analysis"
+    },
+    {
+      id: 6,
+      src: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=400&h=300&fit=crop",
+      alt: "Success Stories",
+      title: "Success Stories"
     }
   ];
 
@@ -99,6 +138,45 @@ const LandingPage = () => {
                 alt="Trading Dashboard"
                 className="rounded-2xl shadow-2xl"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* YouTube Video Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Learn from the Experts
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Watch our latest trading insights and educational content
+            </p>
+          </div>
+          
+          <div className="max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                title="FxStreampro Educational Content"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <div className="text-center mt-8">
+              <a
+                href="https://www.youtube.com/@fxstreampro"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center space-x-2 text-primary-600 hover:text-primary-700 font-medium"
+              >
+                <Youtube className="h-5 w-5" />
+                <span>Visit our YouTube Channel</span>
+                <ExternalLink className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -249,6 +327,39 @@ const LandingPage = () => {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section id="gallery" className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Learning Environment
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Take a look at our state-of-the-art facilities and learning atmosphere
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryImages.map((image) => (
+              <div key={image.id} className="group cursor-pointer">
+                <div className="relative overflow-hidden rounded-2xl shadow-lg hover-lift">
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4">
+                      <h3 className="text-white font-semibold text-lg">{image.title}</h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -348,7 +459,7 @@ const LandingPage = () => {
                 Ready to start your trading journey? Contact us today and take the first step towards financial freedom.
               </p>
               
-              <div className="space-y-6">
+              <div className="space-y-6 mb-8">
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 bg-primary-600 rounded-lg flex items-center justify-center">
                     <Mail className="h-6 w-6" />
@@ -377,6 +488,53 @@ const LandingPage = () => {
                     <div className="font-semibold">Address</div>
                     <div className="text-gray-300">New York, NY 10001</div>
                   </div>
+                </div>
+              </div>
+
+              {/* Social Media Links */}
+              <div>
+                <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
+                <div className="flex space-x-4">
+                  <a
+                    href="https://facebook.com/fxstreampro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+                  >
+                    <Facebook className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://twitter.com/fxstreampro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center hover:bg-blue-500 transition-colors"
+                  >
+                    <Twitter className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://instagram.com/fxstreampro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transition-colors"
+                  >
+                    <Instagram className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://youtube.com/@fxstreampro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center hover:bg-red-700 transition-colors"
+                  >
+                    <Youtube className="h-6 w-6" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/company/fxstreampro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center hover:bg-blue-800 transition-colors"
+                  >
+                    <Linkedin className="h-6 w-6" />
+                  </a>
                 </div>
               </div>
             </div>
